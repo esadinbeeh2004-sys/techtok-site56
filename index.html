@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tech Tok Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#f4f8ff;--sf:#ffffff;--ink:#0b1b3b;--mut:#5a6b8c;--ln:#d8e2f5;--ac:#1456ff;--ac2:#38b6ff;--ok:#0f9d58;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sf);border-bottom:1px solid var(--ln)}
+.bar{display:flex;align-items:center;gap:12px;height:62px}
+.logo{font-weight:700;font-size:22px;letter-spacing:-.5px;white-space:nowrap}.logo b{color:var(--ac2)}
+.search{flex:1;min-width:0;padding:10px 14px;border:1px solid var(--ln);border-radius:10px;background:var(--bg)}
+.btn{border:0;border-radius:10px;padding:10px 16px;font-weight:700;background:var(--ac);color:#fff}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--ln)}
+.btn.warn{background:#d23b3b}.btn.sm{padding:6px 10px;font-size:14px}
+.hero{padding:40px 0 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
+.hero h1{font-size:clamp(32px,6vw,56px);line-height:1.02;letter-spacing:-1.5px;margin:0 0 12px}
+.hero p{color:var(--mut);max-width:44ch;margin:0 0 18px}
+.hero .art{aspect-ratio:1.3;border-radius:28px;background:linear-gradient(135deg,var(--ac),#101c6e);display:grid;place-items:center;font-size:96px;position:relative;overflow:hidden}
+.hero .art:after{content:"৳ cash on delivery · bKash · Nagad";position:absolute;left:14px;bottom:14px;background:var(--ac2);color:#10172a;font-size:13px;font-weight:700;padding:6px 12px;border-radius:99px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:8px 0}
+.chip{white-space:nowrap;border:1px solid var(--ln);background:var(--sf);border-radius:99px;padding:7px 14px}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+select,.in{padding:9px 12px;border:1px solid var(--ln);border-radius:10px;background:var(--sf);width:100%}
+.tools select{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;padding:16px 0 48px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--bg)}
+.card .b{padding:12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{margin:0;font-size:16px}.cat{color:var(--mut);font-size:13px}
+.price{font-weight:700;font-size:18px}.badge{position:absolute;top:10px;left:10px;background:var(--ac2);color:#10172a;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px}
+.pic{position:relative}.card .row{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:8px}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:40px 0}
+.ov{position:fixed;inset:0;background:rgba(10,14,28,.55);z-index:50;display:none;justify-content:flex-end}
+.ov.show{display:flex}.ov.mid{justify-content:center;align-items:flex-start;padding:4vh 12px;overflow:auto}
+.pn{background:var(--sf);width:min(440px,100%);height:100%;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.mid .pn{height:auto;border-radius:18px;width:min(720px,100%)}
+.pn h2{margin:0}.x{margin-left:auto}
+.line{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--ln);padding:8px 0}
+.line img{width:52px;height:52px;border-radius:10px;object-fit:cover}.line .n{flex:1;min-width:0}
+.q{display:flex;align-items:center;gap:6px}.q button{width:28px;height:28px;border-radius:8px;border:1px solid var(--ln);background:var(--bg)}
+.f{display:grid;gap:10px}.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{font-size:14px;color:var(--mut);display:grid;gap:4px}
+.pay{display:grid;gap:8px}.pay label{display:flex;gap:10px;align-items:center;border:1px solid var(--ln);border-radius:10px;padding:10px;color:var(--ink)}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:18px}
+.note{background:var(--bg);border-radius:10px;padding:10px;font-size:14px;color:var(--mut)}
+.tabs{display:flex;gap:8px}.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--ln);vertical-align:top}
+.inv{border:1px dashed var(--ln);border-radius:12px;padding:14px}
+.trk{font-size:22px;font-weight:700;color:var(--ac);word-break:break-all}
+.steps{display:flex;gap:4px;flex-wrap:wrap}.st{padding:4px 10px;border-radius:99px;background:var(--bg);font-size:13px;color:var(--mut)}.st.on{background:var(--ok);color:#fff}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;z-index:99;display:none}
+footer{border-top:1px solid var(--ln);padding:20px 0;color:var(--mut);font-size:14px}
+.low{color:#d23b3b;font-weight:700;font-size:13px}.fs{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px}.fc{display:flex;gap:12px;align-items:center;background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:10px;min-width:280px}.fc img{width:84px;height:84px;border-radius:12px;object-fit:cover}.fc .price{margin:2px 0 6px}
+.pop{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--sf);border:1px solid var(--ln);border-left:4px solid var(--ac2);border-radius:12px;padding:10px 14px;z-index:40;max-width:min(320px,calc(100% - 32px));display:none;box-shadow:0 6px 24px rgba(0,0,0,.15)}.pop small{display:block;color:var(--mut)}
+body{background:linear-gradient(180deg,#e6efff 0,#f4f8ff 380px,var(--bg) 100%)}
+header{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.hero h1{font-size:clamp(30px,5.5vw,52px);letter-spacing:-1.5px}
+.hero .art{background:linear-gradient(135deg,#1456ff,#5aa2ff);box-shadow:0 20px 50px rgba(20,86,255,.25)}
+.hero .art:after{color:#0b1b3b;background:#fff}
+.btn{color:#fff;box-shadow:0 4px 12px rgba(20,86,255,.22)}.btn:hover{background:#0f43d1}
+.btn.alt{color:var(--ink);background:#fff;box-shadow:none;border-color:var(--ln)}.btn.alt:hover{border-color:var(--ac);color:var(--ac)}
+.btn.warn{background:#d23b3b;color:#fff;box-shadow:none}
+.chip{color:var(--ink)}.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.card:hover{border-color:var(--ac);box-shadow:0 8px 24px rgba(20,86,255,.12)}
+.badge{color:#fff;background:var(--ac)}.price{color:var(--ac)}
+.ov{background:rgba(11,27,59,.45)}.mid .pn{box-shadow:0 20px 60px rgba(11,27,59,.25)}
+.st.on{color:#fff}.low{color:#d23b3b}
+.search:focus,.in:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(20,86,255,.18);outline:none}
+@media print{body{background:#fff!important}#invoice,#invoice *{color:#000!important;text-shadow:none!important}}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.hero .art{display:none}.f2{grid-template-columns:1fr}.hide-m{display:none}}
+@media print{body *{visibility:hidden}#invoice,#invoice *{visibility:visible}#invoice{position:absolute;left:0;top:0;width:100%}}
+</style></head><body>
+<header><div class="wrap bar">
+<div class="logo">Tech<b>Tok</b> Shop</div>
+<input class="search" id="q" placeholder="Search gadgets and accessories" aria-label="Search products">
+<button class="btn alt hide-m" onclick="openTrack()">Track order</button>
+<button class="btn alt" onclick="openAdmin()">Admin</button>
+<button class="btn" onclick="show('cart')">Bag (<span id="cc">0</span>)</button>
+</div></header>
+
+<main class="wrap">
+<section class="hero"><div><h1>Gadgets you’ll actually use.</h1><p>Earbuds, chargers, smartwatches and everyday accessories, delivered across Bangladesh. Pay on delivery, bKash or Nagad.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop now</button></div><div class="art" aria-hidden="true">🎧</div></section>
+<div class="trust"><span><b>COD</b> cash on delivery</span><span><b>bKash</b> &amp; <b>Nagad</b></span><span><b>Tracking</b> on every order</span><span><b>Invoice</b> instantly</span></div><section id="feat"></section><section id="shop"><div class="tools"><div class="chips" id="chips"></div>
+<select id="sort" aria-label="Sort products"><option value="new">Newest</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></div>
+<div class="grid" id="grid"></div></section>
+</main>
+<footer><div class="wrap">© Tech Tok Shop · Chattogram, Bangladesh</div></footer>
+
+<!-- Cart -->
+<div class="ov" id="cart" onclick="if(event.target===this)hide('cart')"><div class="pn">
+<div style="display:flex"><h2>Your bag</h2><button class="btn alt sm x" onclick="hide('cart')">Close</button></div>
+<div id="cl"></div><div class="tot"><span>Subtotal</span><span id="ct">৳0</span></div><div class="cat">Delivery charge is added at checkout. Any free-delivery offer applies automatically.</div>
+<button class="btn" onclick="openCheckout()">Go to checkout</button></div></div>
+
+<!-- Checkout -->
+<div class="ov mid" id="co" onclick="if(event.target===this)hide('co')"><div class="pn">
+<div style="display:flex"><h2>Checkout</h2><button class="btn alt sm x" onclick="hide('co')">Close</button></div>
+<div class="f" id="cof">
+<div class="f2"><label>Full name<input class="in" id="cn"></label><label>Phone<input class="in" id="cp" inputmode="tel" placeholder="01XXXXXXXXX"></label></div>
+<label>Delivery address<textarea class="in" id="ca" rows="2"></textarea></label>
+<div class="f2"><label>City<input class="in" id="cy"></label><label>Postal code<input class="in" id="cz"></label></div>
+<label>Order notes (optional)<input class="in" id="cx"></label>
+<div class="pay"><label><input type="radio" name="pm" value="Cash on Delivery" checked> Cash on Delivery</label>
+<label><input type="radio" name="pm" value="bKash"> bKash</label><label><input type="radio" name="pm" value="Nagad"> Nagad</label></div>
+<div class="note" id="pnote"></div>
+<div class="note" style="display:grid;gap:4px"><div style="display:flex;justify-content:space-between"><span>Subtotal</span><span id="cos">৳0</span></div><div style="display:flex;justify-content:space-between"><span>Delivery charge</span><span id="cod">৳0</span></div></div><div class="tot"><span>Total</span><span id="cot">৳0</span></div>
+<button class="btn" onclick="placeOrder()">Place order</button></div></div></div>
+
+<!-- Invoice -->
+<div class="ov mid" id="iv" onclick="if(event.target===this)hide('iv')"><div class="pn"><div id="invoice"></div>
+<div style="display:flex;gap:8px"><button class="btn" onclick="print()">Print or save as PDF</button><button class="btn alt" onclick="hide('iv')">Close</button></div></div></div>
+
+<!-- Track -->
+<div class="ov mid" id="tr" onclick="if(event.target===this)hide('tr')"><div class="pn" style="width:min(480px,100%)">
+<div style="display:flex"><h2>Track your order</h2><button class="btn alt sm x" onclick="hide('tr')">Close</button></div>
+<input class="in" id="tn" placeholder="Tracking number, e.g. TTS-123456"><button class="btn" onclick="doTrack()">Track</button><div id="tres"></div></div></div>
+
+<!-- Admin login -->
+<div class="ov mid" id="al" onclick="if(event.target===this)hide('al')"><div class="pn" style="width:min(380px,100%)">
+<h2>Admin sign in</h2><label>Admin ID<input class="in" id="au" autocomplete="username"></label>
+<label>Password<input class="in" id="ap" type="password" autocomplete="current-password"></label>
+<button class="btn" onclick="login()">Sign in</button><div class="note">Demo login runs in the browser. Use a server-side login before taking real orders.</div></div></div>
+
+<!-- Admin -->
+<div class="ov mid" id="ad" onclick="if(event.target===this)hide('ad')"><div class="pn" style="width:min(980px,100%)">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><h2>Admin dashboard</h2><div class="tabs x"><button class="btn sm" id="t1" onclick="tab(1)">Products</button><button class="btn alt sm" id="t2" onclick="tab(2)">Orders &amp; delivery</button><button class="btn alt sm" id="t3" onclick="tab(3)">Team &amp; settings</button><button class="btn alt sm" onclick="logout()">Sign out</button></div></div>
+<div id="p1"><div class="f" style="background:var(--bg);padding:12px;border-radius:12px">
+<b id="pft">Add product</b><input type="hidden" id="pid">
+<div class="f2"><label>Name<input class="in" id="pn_"></label><label>Category<input class="in" id="pc" list="cl_"></label></div><datalist id="cl_"></datalist>
+<div class="f2"><label>Price (৳)<input class="in" id="pp" type="number" min="0"></label><label>Stock<input class="in" id="ps" type="number" min="0"></label></div>
+<div class="f2"><label>Badge (e.g. New, Sale)<input class="in" id="pbg"></label><label>Photo upload<input class="in" id="pf" type="file" accept="image/*"></label></div>
+<label>Or image URL<input class="in" id="pu" placeholder="https://"></label>
+<label>Description<textarea class="in" id="pd" rows="2"></textarea></label>
+<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="pfe"> Feature this product on the homepage</label>
+<div style="display:flex;gap:8px"><button class="btn" onclick="saveProduct()">Save product</button><button class="btn alt" onclick="resetForm()">Clear</button></div></div>
+<div id="lowb"></div><div class="tbl"><table id="pt"></table></div></div>
+<div id="p2" style="display:none"><div id="ost"></div><div class="tbl"><table id="ot"></table></div></div>
+<div id="p3" style="display:none"><div class="f" style="background:var(--bg);padding:12px;border-radius:12px"><b>Add sub-moderator</b>
+<div class="f2"><label>Moderator ID<input class="in" id="mi" autocomplete="off"></label><label>Password<input class="in" id="mp" autocomplete="off"></label></div>
+<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="mpr" checked> Can manage products</label>
+<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="mor" checked> Can manage orders and delivery</label>
+<button class="btn" onclick="addMod()">Create moderator</button></div>
+<div class="tbl"><table id="mt"></table></div>
+<div class="f" style="background:var(--bg);padding:12px;border-radius:12px;margin-top:12px"><label>Delivery charge (৳)<input class="in" id="sf" type="number" min="0" onchange="setFee(this.value)"></label><label>Free delivery above (৳, 0 = off)<input class="in" id="sfr" type="number" min="0" onchange="setFree(this.value)"></label><b>Purchase pop-ups on the storefront</b><select id="sp" onchange="setPop(this.value)"><option value="random">Random sample messages</option><option value="real">Real recent orders only</option><option value="off">Off</option></select></div></div>
+</div></div>
+<div class="toast" id="toast" role="status"></div><div class="pop" id="pop" role="status"></div>
+<div class="ov mid" id="ty" onclick="if(event.target===this)hide('ty')"><div class="pn" style="width:min(420px,100%);text-align:center;align-items:center"><div style="font-size:56px" aria-hidden="true">🎉</div><h2>Thanks for your purchase!</h2><p class="cat" id="tym"></p><div class="trk" id="tyt"></div><button class="btn" onclick="hide('ty');showInvoice(LAST)">View invoice</button><button class="btn alt" onclick="hide('ty')">Keep shopping</button></div></div>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){toast('Storage is full or blocked. Use a smaller photo.')}}
+function ph(e,c){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="'+c+'"/><text x="100" y="125" font-size="90" text-anchor="middle">'+e+'</text></svg>';return 'data:image/svg+xml;utf8,'+encodeURIComponent(s)}
+var SEED=[
+{id:'p1',name:'Aero Buds Pro',cat:'Earbuds',price:2490,stock:25,badge:'New',feat:true,img:ph('🎧','#dfe5ff'),desc:'Wireless earbuds with noise reduction.'},
+{id:'p2',name:'Pulse Smartwatch S2',cat:'Smartwatches',price:3890,stock:12,badge:'Sale',feat:true,img:ph('⌚','#ffe6d2'),desc:'AMOLED display, heart rate and sleep tracking.'},
+{id:'p3',name:'VoltMax 20000mAh',cat:'Power banks',price:1850,stock:30,badge:'',img:ph('🔋','#d9f3e8'),desc:'Fast charging power bank with dual USB.'},
+{id:'p4',name:'Swift 65W GaN Charger',cat:'Chargers',price:1290,stock:40,badge:'',img:ph('🔌','#fff1c9'),desc:'Compact charger for phone and laptop.'},
+{id:'p5',name:'Clear Armor Phone Case',cat:'Cases',price:490,stock:80,badge:'',img:ph('📱','#e9e1ff'),desc:'Shock-proof transparent case.'},
+{id:'p6',name:'Glide Wireless Mouse',cat:'Computer accessories',price:890,stock:3,badge:'Low stock',img:ph('🖱️','#dff1f7'),desc:'Silent clicks, 12-month battery.'}];
+var P=ld('tts_products',null);if(!P){P=SEED;sv('tts_products',P)}
+var C=ld('tts_cart',[]),O=ld('tts_orders',[]),cat='All',admin=false;
+var STAT=['Order received','Confirmed','Processing','Packed','Shipped','Out for delivery','Delivered','Cancelled'];
+function tk(n){return '৳'+Number(n).toLocaleString('en-US')}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function show(i){$(i).classList.add('show');if(i==='cart')renderCart()}
+function hide(i){$(i).classList.remove('show')}
+var tt;function toast(m){var t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(tt);tt=setTimeout(function(){t.style.display='none'},2600)}
+
+function renderShop(){
+ var cats=['All'];P.forEach(function(p){if(cats.indexOf(p.cat)<0)cats.push(p.cat)});
+ $('chips').innerHTML=cats.map(function(c){return '<button class="chip'+(c===cat?' on':'')+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join('');
+ var q=$('q').value.toLowerCase(),s=$('sort').value;
+ var L=P.filter(function(p){return (cat==='All'||p.cat===cat)&&(p.name+' '+p.cat+' '+p.desc).toLowerCase().indexOf(q)>-1});
+ if(s==='lo')L.sort(function(a,b){return a.price-b.price});if(s==='hi')L.sort(function(a,b){return b.price-a.price});
+ $('grid').innerHTML=L.length?L.map(function(p){return '<article class="card"><div class="pic"><img src="'+esc(p.img)+'" alt="'+esc(p.name)+'" loading="lazy">'+(p.feat?'<span class="badge" style="background:var(--ink);color:var(--bg);left:auto;right:10px">★ Featured</span>':'')+(p.badge?'<span class="badge">'+esc(p.badge)+'</span>':'')+'</div><div class="b"><span class="cat">'+esc(p.cat)+'</span><h3>'+esc(p.name)+'</h3><span class="cat">'+esc(p.desc)+'</span>'+(p.stock>0&&p.stock<=LOW?'<span class="low">Only '+p.stock+' left</span>':'')+'<div class="row"><span class="price">'+tk(p.price)+'</span>'+(p.stock>0?'<button class="btn sm" data-add="'+p.id+'">Add to bag</button>':'<span class="cat">Out of stock</span>')+'</div></div></article>'}).join(''):'<div class="empty">No products match. Try another search or category.</div>';
+ var F=P.filter(function(p){return p.feat&&p.stock>0});
+ $('feat').innerHTML=F.length?'<h2 style="margin:8px 0">Featured</h2><div class="fs">'+F.map(function(p){return '<div class="fc"><img src="'+esc(p.img)+'" alt="'+esc(p.name)+'"><div><b>'+esc(p.name)+'</b><div class="price">'+tk(p.price)+'</div><button class="btn sm" data-add="'+p.id+'">Add to bag</button></div></div>'}).join('')+'</div>':'';
+ $('cc').textContent=C.reduce(function(a,c){return a+c.q},0);
+}
+$('chips').onclick=function(e){var c=e.target.getAttribute('data-c');if(c){cat=c;renderShop()}};
+$('grid').onclick=function(e){var id=e.target.getAttribute('data-add');if(id)add(id)};$('feat').onclick=$('grid').onclick;
+$('q').oninput=renderShop;$('sort').onchange=renderShop;
+
+function prod(id){return P.filter(function(p){return p.id===id})[0]}
+function add(id){var p=prod(id),l=C.filter(function(c){return c.id===id})[0];
+ if(l){if(l.q>=p.stock)return toast('Only '+p.stock+' in stock');l.q++}else C.push({id:id,q:1});sv('tts_cart',C);renderShop();toast('Added to bag')}
+function chg(id,d){var p=prod(id),l=C.filter(function(c){return c.id===id})[0];if(!l)return;l.q+=d;
+ if(l.q>p.stock){l.q=p.stock;toast('Only '+p.stock+' in stock')}
+ if(l.q<=0)C=C.filter(function(c){return c.id!==id});sv('tts_cart',C);renderCart();renderShop()}
+function clean(){C=C.filter(function(c){return prod(c.id)})}
+function total(){clean();return C.reduce(function(a,c){return a+prod(c.id).price*c.q},0)}
+function renderCart(){clean();$('cl').innerHTML=C.length?C.map(function(c){var p=prod(c.id);return '<div class="line"><img src="'+esc(p.img)+'" alt=""><div class="n"><b>'+esc(p.name)+'</b><div class="cat">'+tk(p.price)+'</div></div><div class="q"><button onclick="chg(\''+p.id+'\',-1)" aria-label="Fewer">−</button>'+c.q+'<button onclick="chg(\''+p.id+'\',1)" aria-label="More">+</button></div></div>'}).join(''):'<div class="empty">Your bag is empty. Add a product to start.</div>';$('ct').textContent=tk(total())}
+function openCheckout(){if(!C.length)return toast('Add a product first');hide('cart');var s=total();$('cos').textContent=tk(s);$('cod').textContent=tk(fee());$('cot').textContent=tk(s+fee());pnote();show('co')}
+function pnote(){var v=document.querySelector('input[name=pm]:checked').value;$('pnote').textContent=v==='Cash on Delivery'?'Pay the courier when your order arrives.':'Send payment to the Tech Tok Shop '+v+' merchant number after ordering. Your order is confirmed once we verify the transaction. (Live gateway not connected in this demo.)'}
+document.querySelectorAll('input[name=pm]').forEach(function(r){r.onchange=pnote});
+
+function placeOrder(){
+ var n=$('cn').value.trim(),ph_=$('cp').value.trim(),a=$('ca').value.trim(),y=$('cy').value.trim();
+ if(!n||!a||!y)return toast('Enter your name, address and city');
+ if(!/^(\+?88)?01[3-9]\d{8}$/.test(ph_.replace(/[\s-]/g,'')))return toast('Enter a valid Bangladesh mobile number');
+ clean();if(!C.length)return toast('Your bag is empty');
+ for(var i=0;i<C.length;i++){if(C[i].q>prod(C[i].id).stock)return toast('Not enough stock for '+prod(C[i].id).name)}
+ var items=C.map(function(c){var p=prod(c.id);return {id:p.id,name:p.name,price:p.price,q:c.q}});
+ var r=Math.floor(100000+Math.random()*900000),d=new Date();
+ var o={ref:'ORD-'+r,invoice:'INV-'+d.getFullYear()+'-'+r,tracking:'TTS-'+Math.floor(100000+Math.random()*900000),status:STAT[0],pay:document.querySelector('input[name=pm]:checked').value,items:items,sub:total(),fee:fee(),total:total()+fee(),date:d.toISOString(),cust:{name:n,phone:ph_,addr:a,city:y,zip:$('cz').value.trim(),note:$('cx').value.trim()}};
+ items.forEach(function(it){prod(it.id).stock-=it.q});
+ O.unshift(o);C=[];sv('tts_orders',O);sv('tts_products',P);sv('tts_cart',C);
+ hide('co');renderShop();LAST=o;$('tym').textContent='Hi '+o.cust.name.split(' ')[0]+', your order '+o.ref+' is confirmed. Tracking number:';$('tyt').textContent=o.tracking;show('ty')}
+function stepsHtml(o){var i=STAT.indexOf(o.status);if(o.status==='Cancelled')return '<span class="st on" style="background:#d23b3b">Cancelled</span>';return '<div class="steps">'+STAT.slice(0,7).map(function(s,k){return '<span class="st'+(k<=i?' on':'')+'">'+s+'</span>'}).join('')+'</div>'}
+function showInvoice(o){$('invoice').innerHTML='<div class="inv"><h2 style="margin:0">Tech Tok Shop · Invoice</h2><p class="cat">'+esc(o.invoice)+' · Order '+esc(o.ref)+' · '+new Date(o.date).toLocaleString()+'</p><p>Tracking number<br><span class="trk">'+esc(o.tracking)+'</span></p>'+stepsHtml(o)+'<p><b>'+esc(o.cust.name)+'</b><br>'+esc(o.cust.phone)+'<br>'+esc(o.cust.addr)+', '+esc(o.cust.city)+' '+esc(o.cust.zip)+'</p><table><tr><th>Item</th><th>Qty</th><th>Price</th></tr>'+o.items.map(function(i){return '<tr><td>'+esc(i.name)+'</td><td>'+i.q+'</td><td>'+tk(i.price*i.q)+'</td></tr>'}).join('')+'<tr><td colspan="2">Subtotal</td><td>'+tk(o.sub!=null?o.sub:o.total)+'</td></tr><tr><td colspan="2">Delivery charge</td><td>'+tk(o.fee||0)+'</td></tr><tr><td colspan="2"><b>Total ('+esc(o.pay)+')</b></td><td><b>'+tk(o.total)+'</b></td></tr></table></div>';show('iv')}
+function openTrack(){$('tres').innerHTML='';show('tr')}
+function doTrack(){var t=$('tn').value.trim().toUpperCase(),o=O.filter(function(x){return x.tracking===t})[0];
+ $('tres').innerHTML=o?'<p><b>'+esc(o.status)+'</b> · '+esc(o.ref)+'</p>'+stepsHtml(o)+'<p><button class="btn alt sm" onclick="showInvoice(O.filter(function(x){return x.tracking===\''+esc(o.tracking)+'\'})[0])">View invoice</button></p>':'<div class="note">No order found for that tracking number. Check it and try again.</div>'}
+
+/* Admin */
+var MODS=ld('tts_mods',[]),SET=ld('tts_set',{popup:'random'}),LOW=5,LAST=null;
+function fee(){var t=total();return SET.free>0&&t>=SET.free?0:(SET.fee==null?130:SET.fee)}
+function can(k){return admin&&(admin.owner||admin.perms[k])}
+function first(){return can('products')?1:can('orders')?2:3}
+function openAdmin(){if(admin){show('ad');tab(first())}else show('al')}
+function login(){var u=$('au').value.trim(),p=$('ap').value;
+ if(u==='esayed2004'&&p==='esayed2004')admin={owner:true,id:u,perms:{products:1,orders:1}};
+ else{var m=MODS.filter(function(x){return x.id===u&&x.pass===p})[0];if(m)admin={owner:false,id:u,perms:m.perms}}
+ if(!admin)return toast('Wrong admin ID or password');
+ hide('al');$('ap').value='';show('ad');tab(first())}
+function logout(){admin=false;hide('ad');toast('Signed out')}
+function tab(n){
+ if((n===1&&!can('products'))||(n===2&&!can('orders'))||(n===3&&!admin.owner))return toast('You don’t have access to that section');
+ [1,2,3].forEach(function(k){$('p'+k).style.display=k===n?'':'none';$('t'+k).className='btn sm'+(k===n?'':' alt')});
+ $('t1').style.display=can('products')?'':'none';$('t2').style.display=can('orders')?'':'none';$('t3').style.display=admin.owner?'':'none';
+ n===1?renderPT():n===2?renderOT():renderTeam()}
+function renderTeam(){
+ $('mt').innerHTML=MODS.length?'<tr><th>Moderator ID</th><th>Access</th><th></th></tr>'+MODS.map(function(m,i){return '<tr><td>'+esc(m.id)+'</td><td>'+(m.perms.products?'Products ':'')+(m.perms.orders?'Orders':'')+'</td><td><button class="btn warn sm" onclick="delMod('+i+')">Remove</button></td></tr>'}).join(''):'<tr><td class="empty">No moderators yet. Create one above.</td></tr>';
+ $('sf').value=SET.fee==null?130:SET.fee;$('sfr').value=SET.free||0;$('sp').value=SET.popup}
+function addMod(){var id=$('mi').value.trim(),pw=$('mp').value,pr=$('mpr').checked,or=$('mor').checked;
+ if(id.length<4||pw.length<6)return toast('ID needs 4+ characters and password 6+');
+ if(!pr&&!or)return toast('Choose at least one permission');
+ if(id==='esayed2004'||MODS.some(function(m){return m.id===id}))return toast('That ID is already taken');
+ MODS.push({id:id,pass:pw,perms:{products:pr?1:0,orders:or?1:0}});sv('tts_mods',MODS);$('mi').value='';$('mp').value='';renderTeam();toast('Moderator created')}
+function delMod(i){MODS.splice(i,1);sv('tts_mods',MODS);renderTeam()}
+function setFree(v){SET.free=Math.max(0,Number(v)||0);sv('tts_set',SET);toast('Free delivery limit saved')}
+function setFee(v){v=Math.max(0,Number(v)||0);SET.fee=v;sv('tts_set',SET);toast('Delivery charge saved')}
+function setPop(v){SET.popup=v;sv('tts_set',SET);toast('Pop-up setting saved')}
+function renderPT(){var L=P.filter(function(p){return p.stock<=LOW});$('lowb').innerHTML=L.length?'<div class="note" style="color:#d23b3b;margin:8px 0"><b>Low stock:</b> '+L.map(function(p){return esc(p.name)+' ('+p.stock+')'}).join(', ')+'</div>':'';$('cl_').innerHTML=P.map(function(p){return p.cat}).filter(function(c,i,a){return a.indexOf(c)===i}).map(function(c){return '<option value="'+esc(c)+'">'}).join('');
+ $('pt').innerHTML='<tr><th>Photo</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th></th></tr>'+P.map(function(p){return '<tr><td><img src="'+esc(p.img)+'" alt="" width="44" height="44" style="border-radius:8px;object-fit:cover"></td><td>'+esc(p.name)+'</td><td>'+esc(p.cat)+'</td><td>'+tk(p.price)+'</td><td'+(p.stock<=LOW?' style="color:#d23b3b;font-weight:700"':'')+'>'+p.stock+(p.stock<=LOW?(p.stock?' · low':' · out'):'')+'</td><td><button class="btn alt sm" onclick="editP(\''+p.id+'\')">Edit</button> <button class="btn warn sm" onclick="delP(\''+p.id+'\')">Delete</button></td></tr>'}).join('')}
+var upl='';
+$('pf').onchange=function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=600,s=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);upl=c.toDataURL('image/jpeg',.8);toast('Photo ready')};im.src=r.result};r.readAsDataURL(f)};
+function saveProduct(){var nm=$('pn_').value.trim(),pr=Number($('pp').value);if(!nm||!$('pc').value.trim()||!(pr>=0)||$('pp').value==='')return toast('Enter name, category and price');
+ var id=$('pid').value,p=id?prod(id):null;if(!p){p={id:'p'+Date.now()};P.unshift(p);p.img=ph('📦','#e6e9f2')}
+ p.name=nm;p.cat=$('pc').value.trim();p.price=pr;p.stock=Math.max(0,Number($('ps').value)||0);p.badge=$('pbg').value.trim();p.desc=$('pd').value.trim();p.feat=$('pfe').checked;
+ if(upl)p.img=upl;else if($('pu').value.trim())p.img=$('pu').value.trim();
+ sv('tts_products',P);resetForm();renderPT();renderShop();toast('Product saved')}
+function resetForm(){['pid','pn_','pc','pp','ps','pbg','pu','pd','pf'].forEach(function(i){$(i).value=''});upl='';$('pfe').checked=false;$('pft').textContent='Add product'}
+function editP(id){var p=prod(id);$('pid').value=id;$('pn_').value=p.name;$('pc').value=p.cat;$('pp').value=p.price;$('ps').value=p.stock;$('pbg').value=p.badge;$('pfe').checked=!!p.feat;$('pd').value=p.desc;$('pu').value=p.img.indexOf('http')===0?p.img:'';$('pft').textContent='Edit product';$('ad').scrollTop=0}
+function delP(id){if(confirm('Delete this product?')){P=P.filter(function(p){return p.id!==id});C=C.filter(function(c){return c.id!==id});sv('tts_products',P);sv('tts_cart',C);renderPT();renderShop()}}
+function renderOT(){O=ld('tts_orders',O);var ok=O.filter(function(o){return o.status!=='Cancelled'}),pend=O.filter(function(o){return o.status!=='Delivered'&&o.status!=='Cancelled'});$('ost').innerHTML='<div class="note" style="margin:8px 0"><b>'+O.length+'</b> orders · <b>'+pend.length+'</b> to deliver · <b>'+tk(ok.reduce(function(a,o){return a+o.total},0))+'</b> sales</div>';$('ot').innerHTML=O.length?'<tr><th>Order</th><th>Customer</th><th>Items</th><th>Payment</th><th>Status</th><th>Tracking</th><th></th></tr>'+O.map(function(o,i){return '<tr><td>'+esc(o.ref)+'<br><span class="cat">'+esc(o.invoice)+'<br>'+new Date(o.date).toLocaleDateString()+'</span></td><td>'+esc(o.cust.name)+'<br>'+esc(o.cust.phone)+'<br><span class="cat">'+esc(o.cust.addr)+', '+esc(o.cust.city)+'</span></td><td>'+o.items.map(function(x){return esc(x.name)+' ×'+x.q}).join('<br>')+'<br><b>'+tk(o.total)+'</b></td><td>'+esc(o.pay)+'</td><td><select id="os'+i+'">'+STAT.map(function(s){return '<option'+(s===o.status?' selected':'')+'>'+s+'</option>'}).join('')+'</select></td><td><input class="in" id="ot'+i+'" value="'+esc(o.tracking)+'"></td><td><button class="btn sm" onclick="saveO('+i+')">Save changes</button></td></tr>'}).join(''):'<tr><td class="empty">No orders yet. Orders appear here after customers check out.</td></tr>'}
+function saveO(i){var t=$('ot'+i).value.trim().toUpperCase();if(!t)return toast('Tracking number can’t be empty');
+ if(O.some(function(x,k){return k!==i&&x.tracking===t}))return toast('That tracking number is already used');
+ var o=O[i],ns=$('os'+i).value;if(ns==='Cancelled'&&o.status!=='Cancelled')o.items.forEach(function(it){var p=prod(it.id);if(p)p.stock+=it.q});
+ o.status=ns;o.tracking=t;sv('tts_orders',O);sv('tts_products',P);renderShop();toast('Order updated')}
+var NM=['Rahim','Sumaiya','Tanvir','Nusrat','Arif','Mim','Hasan','Farhana','Sabbir','Tasnim','Imran','Jannat'],CT=['Chattogram','Dhaka','Sylhet','Khulna','Rajshahi','Cumilla','Cox’s Bazar','Barishal'];
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+function popup(){var m=SET.popup,msg='',ago;
+ if(m==='real'){O=ld('tts_orders',O);var o=O.length?O[Math.floor(Math.random()*Math.min(O.length,5))]:null;
+  if(o&&Date.now()-new Date(o.date)<864e5){ago=Math.max(1,Math.round((Date.now()-new Date(o.date))/6e4));msg='<b>'+esc(o.cust.name.split(' ')[0])+'</b> from '+esc(o.cust.city)+' purchased <b>'+esc(o.items[0].name)+'</b>'}}
+ else if(m==='random'){var p=rnd(P.filter(function(x){return x.stock>0}));if(p){ago=1+Math.floor(Math.random()*30);msg='<b>'+rnd(NM)+'</b> from '+rnd(CT)+' purchased <b>'+esc(p.name)+'</b>'}}
+ if(!msg)return;var pp=$('pop');pp.innerHTML=msg+'<small>'+ago+' min ago</small>';pp.style.display='block';setTimeout(function(){pp.style.display='none'},5000)}
+setTimeout(function(){popup();setInterval(popup,14000)},6000);
+renderShop();
+</script></body></html>
